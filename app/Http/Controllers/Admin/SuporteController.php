@@ -20,7 +20,7 @@ class SuporteController extends Controller
     {
         $suportes = $this->service->paginate(
             page: $request->get('page', 1),
-            totalPerPage: $request->get('per_page', 6),
+            totalPerPage: $request->get('per_page', 5),
             filter: $request->filter,
         );
 

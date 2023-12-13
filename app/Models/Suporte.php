@@ -15,8 +15,8 @@ class Suporte extends Model
     use HasFactory, HasUuids;
 
     protected $fillable = [
-        'subject',
-        'body',
+        'assunto',
+        'descricao',
         'status'
     ];
   
@@ -33,7 +33,7 @@ class Suporte extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function replies(): HasMany
+    public function respostas(): HasMany
     {
         return $this->hasMany(RespostaSuporte::class);
     }

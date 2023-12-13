@@ -8,7 +8,7 @@ class CreateRespostaDTO
 {
     public function __construct(
         public string $suporteId,
-        public string $content,
+        public string $descricao,
     ) {
     }
 
@@ -16,7 +16,7 @@ class CreateRespostaDTO
     {
         return new self(
             $request->suporte_id,
-            $request->content
+            $request->descricao
         );
     }
 }

@@ -1,13 +1,13 @@
 @extends('admin.layouts.app')
 
-@section('title', "Detalhes da Dúvida {$suporte->subject}")
+@section('title', "Detalhes da Dúvida {$suporte->assunto}")
 
 @section('content')
 <!-- component -->
 <div class="flex justify-center min-h-screen">
     <div class="md:w-3/5 w-3/4 px-10 flex flex-col gap-2 p-5">
         <div class="flex justify-between">
-            <h1 class="text-lg">Detalhes da Dúvida <b>{{ $suporte->subject }}</b></h1>
+            <h1 class="text-lg">Detalhes da Dúvida <b>{{ $suporte->assunto }}</b></h1>
             @can('owner', $suporte->user['id'])
                 <form action="{{ route('suporte.destroy', $suporte->id) }}" method="post">
                     @csrf()
@@ -18,7 +18,7 @@
         </div>
         <ul>
             <li>Status: <x-status-suporte :status="$suporte->status"/></li>
-            <li>Descrição: {{ $suporte->body }}</li>
+            <li>Descrição: {{ $suporte->descricao }}</li>
         </ul>
 
         <!-- Item Container -->
@@ -52,7 +52,7 @@
                     </div>
                 </div>
             @empty
-                <p>Sem respostas</p>
+                <p>Sem Respostas</p>
             @endforelse
 
             <div class="py-4">

@@ -25,7 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/suporte/{id}/respostas/{resposta}', [RespostaSuporteController::class, 'destroy'])->name('respostas.destroy');
     Route::get('/suporte/{id}/respostas', [RespostaSuporteController::class, 'index'])->name('respostas.index');
 
-    // Route::resource('/supports', SupportController::class);
+
     Route::delete('/suporte/{id}', [SuporteController::class, 'destroy'])->name('suporte.destroy');
     Route::put('/suporte/{id}', [SuporteController::class, 'update'])->name('suporte.update');
     Route::get('/suporte/{id}/edit', [SuporteController::class, 'edit'])->name('suporte.edit');

@@ -4,10 +4,10 @@ namespace App\Providers;
 
 use App\Models\Suporte;
 use App\Observers\SuporteObserver;
-use App\Repositories\SuporteEloquentORM;
-use App\Repositories\Contracts\{RespostaRepositoryInterface};
+use App\Repositories\Contracts\RespostaRepositoryInterface;
 use App\Repositories\Contracts\SuporteRepositoryInterface;
 use App\Repositories\Eloquent\RespostaSuporteRepository;
+use App\Repositories\SuporteEloquentORM;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

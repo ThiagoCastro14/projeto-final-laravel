@@ -38,7 +38,7 @@ class EmailSuporteEnviado extends Mailable implements ShouldQueue
     public function content(): Content
     {
         return new Content(
-            markdown: 'emails.suporte.resposta',
+            markdown: 'emails.suporte.respostas',
             with: [
                 'resposta' => $this->resposta,
             ]

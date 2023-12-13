@@ -28,7 +28,7 @@ class RespostaSuporteRepository implements RespostaRepositoryInterface
     public function createNew(CreateRespostaDTO $dto): stdClass
     {
         $resposta = $this->model->with('user')->create([
-            'content' => $dto->content,
+            'descricao' => $dto->descricao,
             'suporte_id' => $dto->suporteId,            
             'user_id' => Auth::user()->id,
         ]);

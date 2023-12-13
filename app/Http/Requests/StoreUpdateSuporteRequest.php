@@ -23,13 +23,13 @@ class StoreUpdateSuporteRequest extends FormRequest
     public function rules(): array
     {
         $rules = [
-            'subject' => [
+            'assunto' => [
                 'required'
                 ,   'min:5'
                 ,   'max:255'
                 ,   'unique:suportes'
             ],
-            'body' => [
+            'descricao' => [
                 'required'
                 ,   'min:5'
                 ,   'max:255'
@@ -37,7 +37,7 @@ class StoreUpdateSuporteRequest extends FormRequest
         ];
 
         if($this->method() === 'PUT'){
-            $rules['subject'] = [
+            $rules['assunto'] = [
                 'required'
                 , 'min: 5'
                 , 'max: 255'

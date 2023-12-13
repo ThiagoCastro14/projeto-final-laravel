@@ -9,18 +9,18 @@ class UpdateSuporteDTO
 {
     public function __construct(
         public string $id,
-        public string $subject,
+        public string $assunto,
         public SuporteStatus $status,
-        public string $body,
+        public string $descricao,
     ) {}
 
     public static function makeFromRequest(StoreUpdateSuporteRequest $request, string $id = null): self
     {
         return new self(
             $id ?? $request->id,
-            $request->subject,
+            $request->assunto,
             SuporteStatus::A,
-            $request->body
+            $request->descricao
         );
     }
 }

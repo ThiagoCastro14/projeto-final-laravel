@@ -32,11 +32,11 @@ class RespostaSuporteApiController extends Controller
 
     public function createNewResposta(StoreRespostaSuporteRequest $request)
     {
-        $reply = $this->respostaService->createNew(
+        $resposta = $this->respostaService->createNew(
             CreateRespostaDTO::makeFromRequest($request)
         );
 
-        return (new RespostaSuporteResource($reply))
+        return (new RespostaSuporteResource($resposta))
             ->response()
             ->setStatusCode(Response::HTTP_CREATED);
     }

@@ -8,17 +8,17 @@ use App\Http\Requests\StoreUpdateSuporteRequest;
 class CreateSuporteDTO
 {
     public function __construct(
-        public string $subject,
+        public string $assunto,
         public SuporteStatus $status,
-        public string $body,
+        public string $descricao,
     ) {}
 
     public static function makeFromRequest(StoreUpdateSuporteRequest $request): self
     {
         return new self(
-            $request->subject,
+            $request->assunto,
             SuporteStatus::A,
-            $request->body
+            $request->descricao
         );
     }
 }

@@ -44,7 +44,7 @@ class RespostaSuporteController extends Controller
         $this->respostaService->delete($id);
 
         return redirect()
-            ->route('resposta.index', $suporteId)
+            ->route('respostas.index', $suporteId)
             ->with('message', 'Deletado com sucesso!');
     }
 }

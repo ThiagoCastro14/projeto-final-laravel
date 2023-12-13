@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Suporte')
+@section('title', 'Fórum')
 
 @section('header')
 @include('admin.suporte.partials.header', compact('suportes'))

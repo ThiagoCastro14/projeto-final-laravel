@@ -17,8 +17,8 @@ class SuporteResource extends JsonResource
     {
         return [
             'identify' => $this->id,
-            'subject' => strtoupper($this->subject),
-            'body' => $this->body,
+            'assunto' => strtoupper($this->assunto),
+            'descricao' => $this->descricao,
             'dt_created' => Carbon::make($this->created_at)->format('Y-m-d'),
         ];
     }

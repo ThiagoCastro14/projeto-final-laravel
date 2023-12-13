@@ -28,13 +28,13 @@
                         @foreach ($suportes->items() as $suporte)
                         <tr>
                             <td class="px-4 py-2 text-sm font-medium whitespace-nowrap dark:text-white">
-                                {{ $suporte->subject }}
+                                {{ $suporte->assunto }}
                             </td>
                             <td class="px-12 py-2 text-sm font-medium whitespace-nowrap">
                                 <x-status-suporte :status="$suporte->status"></x-status-suporte>
                             </td>
                             <td class="px-4 py-2 text-sm whitespace-nowrap text-gray-500 dark:text-gray-400">
-                                {{ $suporte->body }}
+                                {{ $suporte->descricao }}
                             </td>
                             <td class="px-4 py-2 text-sm whitespace-nowrap">
                                 <div class="flex items-center">

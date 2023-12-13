@@ -21,11 +21,11 @@ class SuporteEloquentORM implements SuporteRepositoryInterface
     public function paginate(int $page = 1, int $totalPerPage = 15, string $filter = null): PaginationInterface
     {
         $result = $this->model            
-            ->with('replies.user')
+            ->with('respostas.user')
             ->where(function ($query) use ($filter) {
                 if ($filter) {
-                    $query->where('subject', $filter);
-                    $query->orWhere('body', 'like', "%{$filter}%");
+                    $query->where('assunto', $filter);
+                    $query->orWhere('descricao', 'like', "%{$filter}%");
                 }
             })
             ->paginate($totalPerPage, ['*'], 'page', $page);
@@ -39,8 +39,8 @@ class SuporteEloquentORM implements SuporteRepositoryInterface
             ->with('user')
             ->where(function ($query) use ($filter) {
                 if ($filter) {
-                    $query->where('subject', $filter);
-                    $query->orWhere('body', 'like', "%{$filter}%");
+                    $query->where('assunto', $filter);
+                    $query->orWhere('descricao', 'like', "%{$filter}%");
                 }
             })
             ->get()

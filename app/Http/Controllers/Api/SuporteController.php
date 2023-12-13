@@ -19,19 +19,24 @@ class SuporteController extends Controller
     ) {
     }
 
-   
+    /**
+     * Display a listing of the resource.
+     */
     public function index(Request $request)
     {
-        $suporte = $this->service->paginate(
+        // $supports = Support::paginate();
+        $suportes = $this->service->paginate(
             page: $request->get('page', 1),
             totalPerPage: $request->get('per_page', 1),
             filter: $request->filter,
         );
 
-        return ApiAdapter::toJson($suporte);
+        return ApiAdapter::toJson($suportes);
     }
 
-    
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(StoreUpdateSuporteRequest $request)
     {
         $suporte = $this->service->new(
@@ -43,7 +48,9 @@ class SuporteController extends Controller
             ->setStatusCode(Response::HTTP_CREATED);;
     }
 
-    
+    /**
+     * Display the specified resource.
+     */
     public function show(string $id)
     {
         if (!$suporte = $this->service->findOne($id)) {
@@ -55,7 +62,9 @@ class SuporteController extends Controller
         return new SuporteResource($suporte);
     }
 
-   
+    /**
+     * Update the specified resource in storage.
+     */
     public function update(StoreUpdateSuporteRequest $request, string $id)
     {
         $suporte = $this->service->update(

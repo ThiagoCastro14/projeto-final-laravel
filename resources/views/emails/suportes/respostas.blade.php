@@ -1,9 +1,9 @@
 <x-mail::message>
 # Dúvida Respondida
 
-subject da dúvida {{ $resposta->suporte_id }} foi respondi com <b>{{ $resposta->content }}</b>.
+Assunto da dúvida {{ $resposta->suporte_id }} foi respondi com <b>{{ $resposta->content }}</b>.
 
-<x-mail::button :url="route('resposta.index', $resposta->suporte_id)">
+<x-mail::button :url="route('respostas.index', $resposta->suporte_id)">
 Ver
 </x-mail::button>
 
