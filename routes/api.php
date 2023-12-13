@@ -1,19 +1,18 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\Api\Auth\AuthController;
+use App\Http\Controllers\Api\RespostaSuporteApiController;
+use App\Http\Controllers\Api\SuporteController;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
+Route::post('/login', [AuthController::class, 'auth'])->name('login');
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/respostas/{suporte_id}', [RespostaSuporteApiController::class, 'getRespostasFromsuporte']);
+    Route::post('/respostas/{suporte_id}', [RespostaSuporteApiController::class, 'createNewResposta']);
+    Route::delete('/respostas/{id}', [RespostaSuporteApiController::class, 'destroy']);
+
+    Route::apiResource('/suporte', SuporteController::class);
 });
